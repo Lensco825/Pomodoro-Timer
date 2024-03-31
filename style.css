@@ -42,3 +42,9 @@ body {
 .timerButton:hover {
     background: rgb(220, 220, 220);
 }
+
+
+.timeStop {
+    background-color: black;
+    color: white;
+}

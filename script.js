@@ -1,21 +1,36 @@
 var timer = document.querySelector('.timer');
 var button = document.querySelector('.timerButton');
-var minutes = document.getElementById('minutes').innerHTML;
-var seconds = document.getElementById('seconds').innerHTML;
+var minutes = parseInt(document.getElementById('minutes').innerHTML, 10);
+var seconds = parseInt(document.getElementById('seconds').innerHTML, 10);
 
+
+var extraSecond = seconds + 1;
+var isTimeRunning = false;
 
 console.log(minutes);
 console.log(seconds);
-
+console.log(extraSecond);
 
 function timeTicking() {
     
-    if (x == 0) {
-        x = 59;
+    if (seconds === 0) {
+        seconds = 59;
+        return minutes -1;
     }
     else {
-        return x - 1;
+        return seconds - 1;
     }
 }
 
-setTimeout(timeTicking, 1000);
+button.addEventListener('click', () => {
+    if (isTimeRunning) {
+        isTimeRunning = false;
+       button.textContent = "Start" ;
+    }
+    else {
+        isTimeRunning = true;
+        button.textContent = "false";
+    }
+
+    button.classList.toggle('timeStop');
+})
