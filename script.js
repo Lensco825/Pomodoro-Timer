@@ -1,30 +1,41 @@
 var timer = document.querySelector('.timer');
 var button = document.querySelector('.timerButton');
-var minutesTens = parseInt(document.getElementById('minuteTens'), 10).innerHTML;
-var minutesOnes = parseInt(document.getElementById('minutesOnes'), 10).innerHTML;
-var secondsTens = parseInt(document.getElementById('secondsTens'), 10).innerHTML;
-var secondsOnes = parseInt(document.getElementById('secondsOnes'), 10).innerHTML;
-
+var minutesTens = document.getElementById('minuteTens');
+var minutesOnes = document.getElementById('minutesOnes');
+var secondsTens = document.getElementById('secondsTens');
+let secondsOnes = document.getElementById('secondsOnes');
 var isTimeRunning = false;
+
 
 console.log("is this alright?");
 button.addEventListener('click', () => {
     if (isTimeRunning) {
         isTimeRunning = false;
        button.textContent = "Start" ;
+       
     }
     else {
         isTimeRunning = true;
         button.textContent = "false";
+        timeDown();
     }
 
     button.classList.toggle('timeStop');
 })
 
+
+
 function timeDown() {
     if (isTimeRunning) {
-        secondsOnes++;
+       if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
+        secondsTens.innerHTML = parseInt(secondsTens.innerHTML) + 5;
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 9;
+        minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) - 1;
+       }
+       else {
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) - 1;
+       }
     }
 }
 
-console.log(secondsOnes++);
+setInterval(timeDown, 1000);
