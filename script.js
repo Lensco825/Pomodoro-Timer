@@ -27,6 +27,12 @@ button.addEventListener('click', () => {
 
 function timeDown() {
     if (isTimeRunning) {
+
+        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
+            minutesTens.innerHTML = parseInt(minutesTens.innerHTML) + 5;
+            isTimeRunning = false;
+        }
+
        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
         secondsTens.innerHTML = parseInt(secondsTens.innerHTML) + 5;
         secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 9;
