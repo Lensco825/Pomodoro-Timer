@@ -16,7 +16,7 @@ button.addEventListener('click', () => {
     }
     else {
         isTimeRunning = true;
-        button.textContent = "false";
+        button.textContent = "Stop";
         timeDown();
     }
 
@@ -27,6 +27,14 @@ button.addEventListener('click', () => {
 
 function timeDown() {
     if (isTimeRunning) {
+
+        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
+            minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 5;
+            isTimeRunning = false;
+            button.textContent = "Start";
+            button.classList.remove('timeStop');
+            return;
+        }
 
         if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0) {
          minutesTens.innerHTML = parseInt(minutesTens.innerHTML) - 1;    
