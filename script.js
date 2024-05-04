@@ -5,6 +5,7 @@ var minutesOnes = document.getElementById('minutesOnes');
 var secondsTens = document.getElementById('secondsTens');
 let secondsOnes = document.getElementById('secondsOnes');
 var isTimeRunning = false;
+var pomodoro = true;
 
 
 console.log("is this alright?");
@@ -17,7 +18,7 @@ button.addEventListener('click', () => {
     else {
         isTimeRunning = true;
         button.textContent = "Stop";
-        timeDown();
+        pomodoroTimer();
     }
 
     button.classList.toggle('timeStop');
@@ -25,14 +26,16 @@ button.addEventListener('click', () => {
 
 
 
-function timeDown() {
-    if (isTimeRunning) {
+function pomodoroTimer() {
+
+    if (isTimeRunning && pomodoro) {
 
         if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
             minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 5;
             isTimeRunning = false;
             button.textContent = "Start";
             button.classList.remove('timeStop');
+            pomodoro = false;
             return;
         }
 
@@ -44,7 +47,7 @@ function timeDown() {
 
        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
         secondsTens.innerHTML = parseInt(secondsTens.innerHTML) + 5;
-        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 9;
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 10;
         minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) - 1;
         console.log("seconds reset");
        }
@@ -62,4 +65,43 @@ function timeDown() {
     }
 }
 
-setInterval(timeDown, 1000);
+function breakTime() {
+    if(isTimeRunning && !pomodoro) {
+        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
+            minutesTens.innerHTML = parseInt(minutesTens.innerHTML) + 2;
+            minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 5;
+            isTimeRunning = false;
+            button.textContent = "Start";
+            button.classList.remove('timeStop');
+            pomodoro = true;
+            return;
+        }
+
+        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0) {
+         minutesTens.innerHTML = parseInt(minutesTens.innerHTML) - 1;    
+         minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 10;
+         console.log("less than 20 minutes");
+        }
+
+       if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
+        secondsTens.innerHTML = parseInt(secondsTens.innerHTML) + 5;
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 10;
+        minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) - 1;
+        console.log("seconds reset");
+       }
+
+       if (parseInt(secondsOnes.innerHTML) === 0) {
+        secondsTens.innerHTML = parseInt(secondsTens.innerHTML) - 1;
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 9;
+        console.log('tenths of a second have lowered');
+       }
+
+
+       else {
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) - 1;
+       }
+    }
+ }
+
+setInterval(pomodoroTimer, 1000);
+setInterval(breakTime, 1000);
