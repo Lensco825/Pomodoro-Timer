@@ -1,11 +1,21 @@
+//pomodoro elements
 var timer = document.querySelector('.timer');
 var button = document.querySelector('.timerButton');
+
+//Time values
 var minutesTens = document.getElementById('minutesTens');
 var minutesOnes = document.getElementById('minutesOnes');
 var secondsTens = document.getElementById('secondsTens');
 let secondsOnes = document.getElementById('secondsOnes');
+
+//For stopping and starting the timer
 var isTimeRunning = false;
 var pomodoro = true;
+
+//getting current time
+var currentDate = new Date();
+var currentTime = currentDate.getTime();
+console.log(currentDate);
 
 
 console.log("is this alright?");
@@ -101,6 +111,7 @@ function breakTime() {
         secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) - 1;
        }
     }
+
  }
 
 setInterval(pomodoroTimer, 1000);
