@@ -13,9 +13,11 @@ var isTimeRunning = false;
 var pomodoro = true;
 
 //getting current time
-var currentDate = new Date();
+var clock = document.querySelector('.clock');
+let currentDate = new Date();
 var currentTime = currentDate.getTime();
 console.log(currentDate);
+
 
 
 console.log("is this alright?");
@@ -114,5 +116,16 @@ function breakTime() {
 
  }
 
+ function updateTime() {
+var clock = document.querySelector('.clock');
+let currentDate = new Date();
+
+clock.textContent = currentDate;
+ 
+ }
+
+
+
 setInterval(pomodoroTimer, 1000);
 setInterval(breakTime, 1000);
+setInterval(updateTime, 1000);
