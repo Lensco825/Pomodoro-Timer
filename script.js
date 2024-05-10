@@ -38,6 +38,14 @@ button.addEventListener('click', () => {
 
 
 
+<<<<<<< HEAD
+function timeDown() {
+    if (isTimeRunning) {
+
+        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
+            minutesTens.innerHTML = parseInt(minutesTens.innerHTML) + 5;
+            isTimeRunning = false;
+=======
 function pomodoroTimer() {
 
     if (isTimeRunning && pomodoro) {
@@ -55,6 +63,7 @@ function pomodoroTimer() {
          minutesTens.innerHTML = parseInt(minutesTens.innerHTML) - 1;    
          minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 10;
          console.log("less than 20 minutes");
+>>>>>>> 10dcc85093eab3c6d063968017c9da42049a364d
         }
 
        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
