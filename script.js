@@ -118,6 +118,7 @@ function breakTime() {
 
  function updateTime() {
 var clock = document.querySelector('.clock');
+var endTIme = document.querySelector('.end-time');
 let currentDate = new Date();
 
 clock.textContent = currentDate;
