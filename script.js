@@ -10,7 +10,6 @@ let secondsOnes = document.getElementById('secondsOnes');
 
 //For stopping and starting the timer
 var isTimeRunning = false;
-var pomodoro = true;
 
 //getting current time
 var clock = document.querySelector('.clock');
@@ -30,7 +29,7 @@ button.addEventListener('click', () => {
     else {
         isTimeRunning = true;
         button.textContent = "Stop";
-        pomodoroTimer();
+        timeDown();
     }
 
     button.classList.toggle('timeStop');
@@ -38,6 +37,7 @@ button.addEventListener('click', () => {
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 function timeDown() {
     if (isTimeRunning) {
@@ -49,13 +49,16 @@ function timeDown() {
 function pomodoroTimer() {
 
     if (isTimeRunning && pomodoro) {
+=======
+function timeDown() {
+    if (isTimeRunning) {
+>>>>>>> parent of 10dcc85 (Made sure the break timer switches back to the 25 minute timer once it's finished)
 
         if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
             minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) + 5;
             isTimeRunning = false;
             button.textContent = "Start";
             button.classList.remove('timeStop');
-            pomodoro = false;
             return;
         }
 
@@ -68,7 +71,7 @@ function pomodoroTimer() {
 
        if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0) {
         secondsTens.innerHTML = parseInt(secondsTens.innerHTML) + 5;
-        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 10;
+        secondsOnes.innerHTML = parseInt(secondsOnes.innerHTML) + 9;
         minutesOnes.innerHTML = parseInt(minutesOnes.innerHTML) - 1;
         console.log("seconds reset");
        }
@@ -86,6 +89,7 @@ function pomodoroTimer() {
     }
 }
 
+<<<<<<< HEAD
 function breakTime() {
     if(isTimeRunning && !pomodoro) {
         if (parseInt(secondsOnes.innerHTML) === 0 && parseInt(secondsTens.innerHTML) === 0 && parseInt(minutesOnes.innerHTML) === 0 && parseInt(minutesTens.innerHTML) === 0) {
@@ -139,3 +143,6 @@ clock.textContent = currentDate;
 setInterval(pomodoroTimer, 1000);
 setInterval(breakTime, 1000);
 setInterval(updateTime, 1000);
+=======
+setInterval(timeDown, 1000);
+>>>>>>> parent of 10dcc85 (Made sure the break timer switches back to the 25 minute timer once it's finished)
