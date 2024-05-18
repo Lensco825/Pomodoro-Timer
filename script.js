@@ -18,6 +18,8 @@ let currentDate = new Date();
 var currentTime = currentDate.getTime();
 console.log(currentDate);
 
+var audio = document.getElementById('audio');
+
 
 
 console.log("is this alright?");
@@ -48,6 +50,7 @@ function pomodoroTimer() {
             button.textContent = "Start";
             button.classList.remove('timeStop');
             pomodoro = false;
+            audio.play();
             return;
         }
 
@@ -86,6 +89,7 @@ function breakTime() {
             button.textContent = "Start";
             button.classList.remove('timeStop');
             pomodoro = true;
+            audio.play();
             return;
         }
 
