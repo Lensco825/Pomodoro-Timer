@@ -121,12 +121,14 @@ function breakTime() {
 
  }
 
+ let coolDate = new Date();
+
+ console.log(coolDate.getHours(),coolDate.getMinutes());
+
  function updateTime() {
 var clock = document.querySelector('.clock');
-var endTIme = document.querySelector('.end-time');
 let currentDate = new Date();
-
-clock.textContent = currentDate;
+clock.textContent = `${currentDate}`;
  
  }
 
