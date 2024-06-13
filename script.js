@@ -18,12 +18,13 @@ let currentDate = new Date();
 var currentTime = currentDate.getTime();
 console.log(currentDate);
 
-var audio = document.getElementById('audio');
-
+var timerEnd = new Audio("hotel-bell-ding-1-174457.mp3");
+var timerStart = new Audio("button-202966.mp3");
 
 
 console.log("is this alright?");
 button.addEventListener('click', () => {
+    timerStart.play();
     if (isTimeRunning) {
         isTimeRunning = false;
        button.textContent = "Start" ;
@@ -50,7 +51,7 @@ function pomodoroTimer() {
             button.textContent = "Start";
             button.classList.remove('timeStop');
             pomodoro = false;
-            audio.play();
+            timerEnd.play();
             return;
         }
 
@@ -89,7 +90,7 @@ function breakTime() {
             button.textContent = "Start";
             button.classList.remove('timeStop');
             pomodoro = true;
-            audio.play();
+            timerEnd.play();
             return;
         }
 
