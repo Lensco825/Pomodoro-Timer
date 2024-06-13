@@ -128,7 +128,11 @@ function breakTime() {
  function updateTime() {
 var clock = document.querySelector('.clock');
 let currentDate = new Date();
-clock.textContent = `${currentDate}`;
+let timeSeconds = currentDate.getSeconds().toString().padStart(2, 0);
+let timeMinutes = currentDate.getMinutes().toString().padStart(2, 0);
+let timeHours = currentDate.getHours().toString().padStart(2, 0);
+let timeString = `${timeHours}:${timeMinutes}:${timeSeconds}`;
+clock.textContent = "Time: " + timeString;
  
  }
 
