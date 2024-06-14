@@ -21,6 +21,10 @@ console.log(currentDate);
 var timerEnd = new Audio("hotel-bell-ding-1-174457.mp3");
 var timerStart = new Audio("button-202966.mp3");
 
+var restartBtn = document.getElementById("restartBtn");
+var forwardBtn = document.getElementById("forwardBtn");
+
+
 
 console.log("is this alright?");
 button.addEventListener('click', () => {
@@ -39,6 +43,38 @@ button.addEventListener('click', () => {
     button.classList.toggle('timeStop');
 })
 
+restartBtn.addEventListener("click", () => {
+    if (pomodoro) {
+        minutesTens.innerHTML = 2;
+        minutesOnes.innerHTML =  5;
+        secondsTens.innerHTML =  0;
+        secondsOnes.innerHTML =  0;
+        isTimeRunning = false;
+        button.textContent = "Start" ;
+        button.classList.toggle('timeStop');
+
+    }
+
+    else {
+        minutesTens.innerHTML = 0;
+        minutesOnes.innerHTML =  5;
+        secondsTens.innerHTML =  0;
+        secondsOnes.innerHTML =  0; 
+        isTimeRunning = false;
+        button.textContent = "Start" ;
+        button.classList.toggle('timeStop');
+    }
+})
+
+forwardBtn.addEventListener("click", () => {
+    if (isTimeRunning) {
+        minutesTens.innerHTML = 0;
+        minutesOnes.innerHTML = 0;
+        secondsTens.innerHTML = 0;
+        secondsOnes.innerHTML = 0;
+
+    }
+})
 
 
 function pomodoroTimer() {

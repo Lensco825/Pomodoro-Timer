@@ -67,3 +67,12 @@ p > a {
     left: 20px;
     font-size: 0.8rem;
 }
+
+.timeChangeContainer {
+    align-self: flex-start;
+    font-size: 30px;
+}
+
+.timeChangeContainer > ion-icon {
+    cursor: pointer;
+}
